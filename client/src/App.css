@@ -4,6 +4,9 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
+.light {
+  background: grey;
+}
 
 .container {
   max-width: 800px;
