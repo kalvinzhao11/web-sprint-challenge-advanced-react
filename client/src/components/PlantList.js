@@ -4,7 +4,8 @@ import axios from "axios";
 export default class PlantList extends Component {
   // add state with a property called "plants" - initialize as an empty array
   state = {
-    plants: []
+    plants: [],
+    searchFilter: ''
   }
   // when the component mounts:
   //   - fetch data from the server endpoint - http://localhost:3333/plants
@@ -19,12 +20,27 @@ export default class PlantList extends Component {
         debugger
       })
   }
+  changeSearchFilter = (event) => {
+    this.setState({searchFilter: event.target.value})
+  }
 
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   render() {
+
+    const filter = this.state.plants.filter( results => {
+      return results.name.indexOf(this.state.searchFilter) !== -1
+    })
     return (
       <main className="plant-list">
-        {this.state?.plants?.map((plant) => (
+        <label>Search Plants (Case Sensitive): </label>
+        <input
+          type='text'
+          name='searchFilter'
+          placeholder='Plant name'
+          value={this.state.searchFilter}
+          onChange={this.changeSearchFilter}>    
+        </input>
+        {filter.map((plant) => (
           <div className="plant-card" key={plant.id}>
             <img className="plant-image" src={plant.img} alt={plant.name} />
             <div className="plant-details">
