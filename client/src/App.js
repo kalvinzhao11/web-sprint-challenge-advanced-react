@@ -64,7 +64,9 @@ function App() {
             />
           )}
         />
-        <Route path="/checkout" component={CheckoutForm} />
+        <Route path="/checkout">
+          <CheckoutForm lightMode={lightMode}/>
+        </Route>
       </Router>
     </div>
   );

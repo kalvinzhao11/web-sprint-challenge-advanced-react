@@ -18,7 +18,7 @@ const useForm = (key, initialValue) => {
     useEffect(()=>{
         if (key == 'light mode') {
             window.document.body.classList.toggle("light");
-            window.document.getElementsByTagName('form')[0].classList.toggle('light')
+            // window.document.getElementsByTagName('form')[0].classList.toggle('light')
         }
     },[values])
 

@@ -17,7 +17,7 @@ const initialValue = {
 const CheckoutForm = (props) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [values, handleChanges, notUsed] = useForm('user info', initialValue);
-
+  console.log(props)
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowSuccessMessage(true);
@@ -25,7 +25,7 @@ const CheckoutForm = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={props.lightMode ? 'light' : ''} >
         <h2>Checkout Form</h2>
         <label>
           First Name:
